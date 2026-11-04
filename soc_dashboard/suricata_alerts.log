@@ -1,0 +1,10 @@
+09/20/2026-05:57:56.000001  [**] [1:1000001:1] CUSTOM Port scan detected - SYN packet [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:33775 -> 192.168.10.100:1056
+09/20/2026-05:57:56.000002  [**] [1:1000001:1] CUSTOM Port scan detected - SYN packet [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:33775 -> 192.168.10.100:9999
+09/20/2026-05:57:56.000003  [**] [1:1000001:1] CUSTOM Port scan detected - SYN packet [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:33775 -> 192.168.10.100:4343
+09/20/2026-05:57:56.000004  [**] [1:1000001:1] CUSTOM Port scan detected - SYN packet [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:33773 -> 192.168.10.100:1114
+09/20/2026-05:57:56.000005  [**] [1:1000001:1] CUSTOM Port scan detected - SYN packet [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:33773 -> 192.168.10.100:49160
+09/20/2026-05:57:55.000006  [**] [1:1000001:1] CUSTOM Port scan detected - SYN packet [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:33775 -> 192.168.10.100:7402
+09/20/2026-05:57:55.000007  [**] [1:1000001:1] CUSTOM Port scan detected - SYN packet [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:33775 -> 192.168.10.100:667
+09/20/2026-05:57:55.000008  [**] [1:1000001:1] CUSTOM Port scan detected - SYN packet [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:33773 -> 192.168.10.100:8193
+09/20/2026-05:57:54.000009  [**] [1:1000001:1] CUSTOM Port scan detected - SYN packet [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:33775 -> 192.168.10.100:161
+09/20/2026-05:57:54.000010  [**] [1:1000001:1] CUSTOM Port scan detected - SYN packet [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:33773 -> 192.168.10.100:2004

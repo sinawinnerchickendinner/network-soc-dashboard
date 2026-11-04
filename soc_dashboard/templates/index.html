@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Network SOC Dashboard</title>
+<style>
+  :root { --navy:#1E2A44; --red:#B33A3A; --bg:#F3F5F8; --line:#D8DEE8; --muted:#5A6472; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:#1A1A1A; font-family:"Segoe UI",Arial,sans-serif; }
+  header { background:var(--navy); color:#fff; padding:1.2rem 2rem; border-bottom:4px solid var(--red); }
+  header h1 { margin:0; font-size:1.4rem; }
+  header p { margin:.3rem 0 0; color:#B8C4DA; font-size:.9rem; }
+  main { max-width:1100px; margin:1.5rem auto; padding:0 1rem; }
+  .summary { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:1.2rem; }
+  .box { background:#fff; border:1px solid var(--line); padding:1rem 1.2rem; flex:1; min-width:220px; }
+  .box h2 { margin:0 0 .5rem; font-size:.95rem; color:var(--muted); font-weight:600; }
+  .big { font-size:2.2rem; font-weight:700; color:var(--red); margin:0; }
+  .box ul { margin:0; padding:0; list-style:none; }
+  .box li { display:flex; justify-content:space-between; padding:.2rem 0; font-size:.95rem; }
+  form { background:#fff; border:1px solid var(--line); padding:1rem 1.2rem; display:flex;
+         gap:1rem; flex-wrap:wrap; align-items:end; margin-bottom:1.2rem; }
+  label { display:flex; flex-direction:column; font-size:.85rem; color:var(--muted); gap:.25rem; }
+  select, input[type=text] { padding:.45rem; border:1px solid var(--line); font-size:.95rem; min-width:170px; }
+  button, .reset { padding:.5rem 1rem; font-size:.95rem; border:0; background:var(--navy); color:#fff; cursor:pointer; text-decoration:none; }
+  .reset { background:#fff; color:var(--navy); border:1px solid var(--navy); }
+  button:focus-visible, .reset:focus-visible, select:focus-visible, input:focus-visible { outline:3px solid var(--red); outline-offset:2px; }
+  .tablewrap { overflow-x:auto; background:#fff; border:1px solid var(--line); }
+  table { border-collapse:collapse; width:100%; font-size:.9rem; }
+  th, td { text-align:left; padding:.55rem .8rem; border-bottom:1px solid var(--line); white-space:nowrap; }
+  th { background:#E9EDF4; color:var(--navy); position:sticky; top:0; }
+  td.msg { white-space:normal; }
+  .p1 { color:var(--red); font-weight:700; } .p2 { color:#B7791F; font-weight:700; } .p3 { color:var(--muted); }
+  .empty { padding:2rem; text-align:center; color:var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Network SOC Dashboard</h1>
+  <p>Suricata alerts from the pfSense lab, parsed from the log into SQLite</p>
+</header>
+<main>
+  <section class="summary">
+    <div class="box"><h2>Alerts matching the filters</h2><p class="big">{{ total }}</p></div>
+    <div class="box">
+      <h2>Top sources</h2>
+      {% if by_source %}
+      <ul>{% for s in by_source %}<li><span>{{ s.src_ip }}</span><strong>{{ s.n }}</strong></li>{% endfor %}</ul>
+      {% else %}<p>No alerts yet.</p>{% endif %}
+    </div>
+  </section>
+
+  <form method="get">
+    <label>Source IP
+      <select name="src_ip"><option value="">All</option>
+        {% for s in sources %}<option value="{{ s }}" {{ 'selected' if s == src }}>{{ s }}</option>{% endfor %}
+      </select></label>
+    <label>Destination IP
+      <select name="dst_ip"><option value="">All</option>
+        {% for d in destinations %}<option value="{{ d }}" {{ 'selected' if d == dst }}>{{ d }}</option>{% endfor %}
+      </select></label>
+    <label>Message contains
+      <input type="text" name="q" value="{{ text }}" placeholder="e.g. port scan"></label>
+    <button type="submit">Apply filters</button>
+    <a class="reset" href="/">Clear filters</a>
+  </form>
+
+  <div class="tablewrap">
+  {% if alerts %}
+    <table>
+      <tr><th>Time</th><th>Source</th><th>Destination</th><th>Protocol</th><th>Priority</th><th>Alert</th></tr>
+      {% for a in alerts %}
+      <tr>
+        <td>{{ a.timestamp }}</td>
+        <td>{{ a.src_ip }}:{{ a.src_port }}</td>
+        <td>{{ a.dst_ip }}:{{ a.dst_port }}</td>
+        <td>{{ a.protocol }}</td>
+        <td class="p{{ a.priority }}">{{ a.priority }}</td>
+        <td class="msg">{{ a.message }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p class="empty">No alerts to show. Run parse_alerts.py to load a Suricata log, or clear the filters.</p>
+  {% endif %}
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,15 @@
+11/02/2026-02:36:47.922223  [**] [1:1000002:1] CUSTOM Possible port scan - many SYNs from one host [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:48656 -> 192.168.10.100:199
+11/02/2026-02:36:57.024718  [**] [1:1000002:1] CUSTOM Possible port scan - many SYNs from one host [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:48656 -> 192.168.10.100:2030
+11/02/2026-02:37:07.025133  [**] [1:1000002:1] CUSTOM Possible port scan - many SYNs from one host [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:48656 -> 192.168.10.100:1147
+11/02/2026-11:50:20.463108  [**] [1:1000002:1] CUSTOM Possible port scan - many SYNs from one host [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:34888 -> 192.168.10.100:5900
+11/02/2026-11:50:29.520155  [**] [1:1000002:1] CUSTOM Possible port scan - many SYNs from one host [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:34886 -> 192.168.10.100:7007
+11/02/2026-11:50:39.534744  [**] [1:1000002:1] CUSTOM Possible port scan - many SYNs from one host [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:34886 -> 192.168.10.100:50389
+11/02/2026-23:59:29.722551  [**] [1:1000002:1] CUSTOM Possible port scan - many SYNs from one host [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:65179 -> 192.168.10.100:554
+11/02/2026-23:59:38.693373  [**] [1:1000002:1] CUSTOM Possible port scan - many SYNs from one host [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:65177 -> 192.168.10.100:32775
+11/02/2026-23:59:48.734173  [**] [1:1000002:1] CUSTOM Possible port scan - many SYNs from one host [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:65179 -> 192.168.10.100:13
+11/03/2026-00:02:35.492114  [**] [1:1000002:1] CUSTOM Possible port scan - many SYNs from one host [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:61306 -> 192.168.10.100:587
+11/03/2026-00:02:44.521344  [**] [1:1000002:1] CUSTOM Possible port scan - many SYNs from one host [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:61306 -> 192.168.10.100:7435
+11/03/2026-00:02:54.366212  [**] [1:1000002:1] CUSTOM Possible port scan - many SYNs from one host [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:61306 -> 192.168.10.100:55056
+11/03/2026-00:10:45.098834  [**] [1:1000002:1] CUSTOM Possible port scan - many SYNs from one host [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:63466 -> 192.168.10.100:23
+11/03/2026-00:10:53.744423  [**] [1:1000002:1] CUSTOM Possible port scan - many SYNs from one host [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:63466 -> 192.168.10.100:5102
+11/03/2026-00:11:03.765182  [**] [1:1000002:1] CUSTOM Possible port scan - many SYNs from one host [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:63466 -> 192.168.10.100:4899
