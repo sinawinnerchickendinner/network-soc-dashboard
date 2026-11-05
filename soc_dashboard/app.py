@@ -22,6 +22,8 @@ def index():
     src = request.args.get("src_ip", "").strip()
     dst = request.args.get("dst_ip", "").strip()
     text = request.args.get("q", "").strip()
+    prio = request.args.get("priority", "").strip()
+    sid = request.args.get("sid", "").strip()
 
     # Filters are added with ? placeholders (never pasted into the SQL text),
     # so typing odd characters into the boxes can't break or attack the database.
@@ -32,6 +34,12 @@ def index():
     if dst:
         where.append("dst_ip = ?")
         params.append(dst)
+    if prio:
+        where.append("priority = ?")
+        params.append(prio)
+    if sid:
+        where.append("sid = ?")
+        params.append(sid)
     if text:
         where.append("message LIKE ?")
         params.append(f"%{text}%")
@@ -42,12 +50,17 @@ def index():
     by_source = query(
         f"SELECT src_ip, COUNT(*) AS n FROM alerts {clause} "
         "GROUP BY src_ip ORDER BY n DESC LIMIT 5", params)
+    by_rule = query(f"SELECT sid, message, COUNT(*) AS n FROM alerts {clause} "
+                    "GROUP BY sid, message ORDER BY n DESC", params)
+    priorities = [r["priority"] for r in query("SELECT DISTINCT priority FROM alerts ORDER BY priority")]
+    rules = query("SELECT DISTINCT sid, message FROM alerts ORDER BY sid")
     sources = [r["src_ip"] for r in query("SELECT DISTINCT src_ip FROM alerts ORDER BY src_ip")]
     destinations = [r["dst_ip"] for r in query("SELECT DISTINCT dst_ip FROM alerts ORDER BY dst_ip")]
 
     return render_template("index.html", alerts=alerts, total=total, by_source=by_source,
                            sources=sources, destinations=destinations,
-                           src=src, dst=dst, text=text)
+                           src=src, dst=dst, text=text, by_rule=by_rule,
+                           priorities=priorities, rules=rules, prio=prio, sid=sid)
 
 
 if __name__ == "__main__":

@@ -17,7 +17,7 @@
   .box h2 { margin:0 0 .5rem; font-size:.95rem; color:var(--muted); font-weight:600; }
   .big { font-size:2.2rem; font-weight:700; color:var(--red); margin:0; }
   .box ul { margin:0; padding:0; list-style:none; }
-  .box li { display:flex; justify-content:space-between; padding:.2rem 0; font-size:.95rem; }
+  .box li { display:flex; justify-content:space-between; gap:1rem; padding:.2rem 0; font-size:.95rem; }
   form { background:#fff; border:1px solid var(--line); padding:1rem 1.2rem; display:flex;
          gap:1rem; flex-wrap:wrap; align-items:end; margin-bottom:1.2rem; }
   label { display:flex; flex-direction:column; font-size:.85rem; color:var(--muted); gap:.25rem; }
@@ -48,6 +48,12 @@
       <ul>{% for s in by_source %}<li><span>{{ s.src_ip }}</span><strong>{{ s.n }}</strong></li>{% endfor %}</ul>
       {% else %}<p>No alerts yet.</p>{% endif %}
     </div>
+    <div class="box">
+      <h2>Alerts by rule</h2>
+      {% if by_rule %}
+      <ul>{% for r in by_rule %}<li><span>{{ r.message }}</span><strong>{{ r.n }}</strong></li>{% endfor %}</ul>
+      {% else %}<p>No alerts yet.</p>{% endif %}
+    </div>
   </section>
 
   <form method="get">
@@ -58,6 +64,14 @@
     <label>Destination IP
       <select name="dst_ip"><option value="">All</option>
         {% for d in destinations %}<option value="{{ d }}" {{ 'selected' if d == dst }}>{{ d }}</option>{% endfor %}
+      </select></label>
+    <label>Priority
+      <select name="priority"><option value="">All</option>
+        {% for p in priorities %}<option value="{{ p }}" {{ 'selected' if p|string == prio }}>{{ p }}</option>{% endfor %}
+      </select></label>
+    <label>Rule
+      <select name="sid"><option value="">All</option>
+        {% for r in rules %}<option value="{{ r.sid }}" {{ 'selected' if r.sid == sid }}>{{ r.message }}</option>{% endfor %}
       </select></label>
     <label>Message contains
       <input type="text" name="q" value="{{ text }}" placeholder="e.g. port scan"></label>

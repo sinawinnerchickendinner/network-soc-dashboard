@@ -13,3 +13,7 @@
 11/03/2026-00:10:45.098834  [**] [1:1000002:1] CUSTOM Possible port scan - many SYNs from one host [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:63466 -> 192.168.10.100:23
 11/03/2026-00:10:53.744423  [**] [1:1000002:1] CUSTOM Possible port scan - many SYNs from one host [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:63466 -> 192.168.10.100:5102
 11/03/2026-00:11:03.765182  [**] [1:1000002:1] CUSTOM Possible port scan - many SYNs from one host [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:63466 -> 192.168.10.100:4899
+11/04/2026-22:33:24.361360  [**] [1:1000003:1] CUSTOM ICMP ping sweep - many echo requests from one host [**] [Classification: (null)] [Priority: 3] {ICMP} 192.168.20.100:8 -> 192.168.10.100:0
+11/04/2026-22:44:11.545669  [**] [1:1000005:1] CUSTOM TEST SSH SYN [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:34990 -> 192.168.10.100:22
+11/05/2026-00:51:35.376516  [**] [1:1000004:1] CUSTOM SSH connection attempt to port 22 [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:52932 -> 192.168.10.100:22
+11/05/2026-00:52:08.453952  [**] [1:1000004:1] CUSTOM SSH connection attempt to port 22 [**] [Classification: (null)] [Priority: 3] {TCP} 192.168.20.100:56668 -> 192.168.10.100:22
